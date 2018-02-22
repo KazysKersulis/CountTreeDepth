@@ -4,25 +4,35 @@ import com.company.branch.Branch;
 
 public class Calculator {
 
-    public static int calculateMaxDepth(Branch branch, int depth) {
+    // go through the tree
+    public static int calculateMaxDepth(Branch branch) {
 
-        int branchDepth = depth;
+        int branchDepth = 0;
         int maxDepth = 0;
 
         // tikriname ar šaka turi savyje šakų
-        if(branch.getBranches().isEmpty()) {
-        } else {
+        branchDepth = calcTest(branch, 0);
+        System.out.println("labas");
 
-            for (int i = 0; i < branch.getBranches().size(); i++) {
-                //System.out.println(branch.getBranches().get(i).getBranches().size());
-                branchDepth++;
-                //System.out.println("Branch depth for " + branchDepth);
-                calculateMaxDepth(branch.getBranches().get(i), branchDepth);
-            }
+        if (branchDepth > maxDepth) {
             maxDepth = branchDepth;
         }
 
         return maxDepth;
 
+    }
+
+    private static int calcTest(Branch branch, int depth) {
+
+
+        if(!(branch.getBranches().isEmpty())){
+
+            for (int i = 0; i < branch.getBranches().size(); i++) {
+                depth++;
+
+                calcTest(branch.getBranches().get(i), depth);
+            }
+        }
+        return depth;
     }
 }
