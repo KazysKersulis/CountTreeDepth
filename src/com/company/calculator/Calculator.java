@@ -12,7 +12,6 @@ public class Calculator {
 
         // tikriname ar šaka turi savyje šakų
         branchDepth = calcTest(branch, 0);
-        System.out.println("labas");
 
         if (branchDepth > maxDepth) {
             maxDepth = branchDepth;
