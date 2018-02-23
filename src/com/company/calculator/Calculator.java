@@ -4,27 +4,28 @@ import com.company.branch.Branch;
 
 public class Calculator {
 
-    public static int traverseTree(Branch branch) {
+    int maxDepth = 0;
+    int branchDepth = 0;
 
-        return calculateTreeDepth(branch, 0);
+    public int traverseTree(Branch branch) {
+
+        maxDepth = calculateTreeDepth(branch);
+        return maxDepth;
     }
 
-    private static int calculateTreeDepth(Branch branch, int branchDepth) {
-
-        int maxDepth = branchDepth;
-
+    private int calculateTreeDepth(Branch branch) {
         for (int i = 0; i < branch.getBranches().size(); i++) {
-            if (branch.getBranches().isEmpty()) {
-            } else {
-                branchDepth++;
-                maxDepth = calculateTreeDepth(branch.getBranches().get(i), branchDepth);
+            branchDepth++;
+            if (!(branch.getBranches().isEmpty())) {
+
+                calculateTreeDepth(branch.getBranches().get(i));
+
+                if (branchDepth > maxDepth) {
+                    maxDepth = branchDepth;
+                }
+
             }
         }
-
-        if (branchDepth > maxDepth) {
-            maxDepth = branchDepth;
-        }
-
         return maxDepth;
     }
 }
