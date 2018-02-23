@@ -22,12 +22,11 @@ public class Calculator {
 
     private static int calculateTreeDepth(Branch branch, int depth) {
 
-
-        if(!(branch.getBranches().isEmpty())){
-
-            for (int i = 0; i < branch.getBranches().size(); i++) {
+        for (int i = 0; i < branch.getBranches().size(); i++) {
+            if (branch.getBranches().isEmpty()) {
+                return depth;
+            } else {
                 depth++;
-
                 calculateTreeDepth(branch.getBranches().get(i), depth);
             }
         }
