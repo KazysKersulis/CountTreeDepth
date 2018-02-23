@@ -24,6 +24,6 @@ public class Main {
         // add new branch to the last left branch
         //branch.getBranches().get(0).getBranches().get(0).addBranch(new Branch());
 
-        System.out.println("The max depth of the tree is " + Calculator.calculateMaxDepth(branch));
+        System.out.println("The max depth of the tree is " + Calculator.traverseTree(branch));
     }
 }

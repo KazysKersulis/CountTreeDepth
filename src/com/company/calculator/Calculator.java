@@ -5,13 +5,12 @@ import com.company.branch.Branch;
 public class Calculator {
 
     // go through the tree
-    public static int calculateMaxDepth(Branch branch) {
+    public static int traverseTree(Branch branch) {
 
         int branchDepth = 0;
         int maxDepth = 0;
 
-        // tikriname ar šaka turi savyje šakų
-        branchDepth = calcTest(branch, 0);
+        branchDepth = calculateTreeDepth(branch, 0);
 
         if (branchDepth > maxDepth) {
             maxDepth = branchDepth;
@@ -21,7 +20,7 @@ public class Calculator {
 
     }
 
-    private static int calcTest(Branch branch, int depth) {
+    private static int calculateTreeDepth(Branch branch, int depth) {
 
 
         if(!(branch.getBranches().isEmpty())){
@@ -29,7 +28,7 @@ public class Calculator {
             for (int i = 0; i < branch.getBranches().size(); i++) {
                 depth++;
 
-                calcTest(branch.getBranches().get(i), depth);
+                calculateTreeDepth(branch.getBranches().get(i), depth);
             }
         }
         return depth;
