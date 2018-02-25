@@ -4,22 +4,15 @@ import com.company.branch.Branch;
 
 public class Calculator {
 
-     public static int calculateTreeHeight(Branch b) {
-        if (b.getBranches().isEmpty()) {
-            return 1;
-        }
+    public static int calculateTreeHeight(Branch branch) {
 
-        int maxHeight = 0;
+        for (int i = 0; i < branch.getBranches().size(); i++) {
 
-        for (Branch branch : b.getBranches()) {
-            int tmp = calculateTreeHeight(branch);
+            if (!(branch.getBranches().isEmpty())) {
 
-            if (tmp > maxHeight) {
-                maxHeight = tmp;
+                return calculateTreeHeight(branch.getBranches().get(i)) + 1;
             }
-
         }
-        return maxHeight + 1;
+        return 1;
     }
-
 }
