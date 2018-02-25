@@ -8,28 +8,20 @@ public class Calculator {
 
     public int traverseTree(Branch branch) {
         int maxBranchDepth = 0;
-        // set initial branch level as 0
-        maxBranchDepth = calculateTreeDepth(branch, 0, 0);
+
+        maxBranchDepth = calculateTreeDepth(branch);
         return maxBranchDepth;
     }
 
-    private int calculateTreeDepth(Branch branch, int depth, int maxDepth) {
+    private int calculateTreeDepth(Branch branch) {
 
         for (int i = 0; i < branch.getBranches().size(); i++) {
 
             if (!(branch.getBranches().isEmpty())) {
 
-                depth++;
-
-                if (depth > maxDepth) {
-                    maxDepth = depth;
-                }
-
-                calculateTreeDepth(branch.getBranches().get(i), depth, maxDepth);
-
-                break;
+                return calculateTreeDepth(branch.getBranches().get(i)) + 1;
             }
         }
-        return maxDepth;
+        return 0;
     }
 }
