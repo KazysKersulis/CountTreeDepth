@@ -13,6 +13,6 @@ public class Calculator {
                 return calculateTreeHeight(branch.getBranches().get(i)) + 1;
             }
         }
-        return 0;
+        return 1;
     }
 }
