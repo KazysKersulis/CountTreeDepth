@@ -15,20 +15,17 @@ public class Calculator {
 
     private int calculateTreeDepth(Branch branch, int depth, int maxDepth) {
 
-        int branchDepth = depth;
-        System.out.println(maxDepth);
-
         for (int i = 0; i < branch.getBranches().size(); i++) {
 
             if (!(branch.getBranches().isEmpty())) {
 
-                branchDepth++;
+                depth++;
 
-                if (branchDepth > maxDepth) {
-                    maxDepth = branchDepth;
+                if (depth > maxDepth) {
+                    maxDepth = depth;
                 }
 
-                calculateTreeDepth(branch.getBranches().get(i), branchDepth, maxDepth);
+                calculateTreeDepth(branch.getBranches().get(i), depth, maxDepth);
 
                 break;
             }
